@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project: Reverse Engineering a Digital System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --maroon: #800000;
+            --maroon-light: #a52a2a;
+            --white: #ffffff;
+            --off-white: #f8f9fa;
+        }
+        body {
+            background-color: var(--off-white);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        .maroon-bg { background-color: var(--maroon); }
+        .maroon-text { color: var(--maroon); }
+        .maroon-border { border-color: var(--maroon); }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #800000 0%, #4a0000 100%);
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s;
+        }
+        
+        .section-header {
+            border-left: 4px solid var(--maroon);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rubric-table th {
+            background-color: var(--maroon);
+            color: white;
+        }
+
+        .page-badge {
+            background-color: var(--maroon);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .resource-btn {
+            background-color: var(--white);
+            color: var(--maroon);
+            border: 2px solid var(--maroon);
+            transition: all 0.3s;
+        }
+
+        .resource-btn:hover {
+            background-color: var(--maroon);
+            color: var(--white);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="maroon-bg text-white py-4 px-6 sticky top-0 z-50 shadow-lg">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-tight uppercase">Project Portal</h1>
+            <div class="space-x-6 hidden md:flex">
+                <a href="#objectives" class="hover:text-gray-300">Objectives</a>
+                <a href="#resources" class="hover:text-gray-300">Resources</a>
+                <a href="#structure" class="hover:text-gray-300">Report Structure</a>
+                <a href="#rubric" class="hover:text-gray-300">Rubric</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient text-white py-16 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-4 inline-block p-2 bg-white/20 rounded-full">
+                <i class="fas fa-microchip text-3xl"></i>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Reverse Engineering a Digital System</h2>
+            <p class="text-lg opacity-90 max-w-2xl mx-auto italic">Computer Architecture & Digital Design Final Laboratory Assignment</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12 space-y-16">
+
+        <!-- Objectives Section -->
+        <section id="objectives" class="grid md:grid-cols-3 gap-8">
+            <div class="card p-8 col-span-2">
+                <div class="section-header">
+                    <h3 class="text-2xl font-bold maroon-text uppercase tracking-wide">🎯 Project Objective</h3>
+                </div>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Using the provided Logisim circuit files, students must reverse engineer the design to uncover its underlying architecture. This project requires documenting signal flow, stress-testing logic under multiple conditions, and mapping its structure to real-world hardware principles.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded border-l-4 border-maroon">
+                        <span class="block font-bold text-xs text-gray-500 uppercase">Recommended Tool</span>
+                        <p class="font-medium maroon-text">Logisim-evolution</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded border-l-4 border-maroon">
+                        <span class="block font-bold text-xs text-gray-500 uppercase">Submission</span>
+                        <p class="font-medium maroon-text">Single PDF File</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources Side Card -->
+            <div id="resources" class="card p-8 border-t-4 maroon-border bg-gray-50">
+                <h3 class="text-xl font-bold mb-4 flex items-center">
+                    <i class="fas fa-folder-open maroon-text mr-2"></i> Provided Materials
+                </h3>
+                <p class="text-sm text-gray-600 mb-6 italic">Access the .circ files, walkthrough videos, and reference slides below:</p>
+                <a href="https://drive.google.com/drive/folders/1eUIDm48MKltYt0lqWWqVCZYwIkRVI8yJ?usp=sharing" target="_blank" class="resource-btn w-full block text-center py-3 rounded font-bold shadow-sm">
+                    <i class="fab fa-google-drive mr-2"></i> Open Resource Folder
+                </a>
+                <div class="mt-6 text-xs text-gray-400 border-t pt-4">
+                    <p><i class="fas fa-info-circle mr-1"></i> Ensure you download the correct .circ version for Logisim-evolution.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Report Structure (Page-by-Page Guide) -->
+        <section id="structure" class="space-y-8">
+            <div class="section-header">
+                <h3 class="text-2xl font-bold maroon-text uppercase tracking-wide">📄 Report Structure (Page-by-Page Guide)</h3>
+                <p class="text-gray-500 text-sm">Organize your paper as follows to ensure full credit during the review process.</p>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- Page 1 -->
+                <div class="card p-6 flex flex-col md:flex-row gap-6 border-l-8 maroon-border">
+                    <div class="md:w-32 flex-shrink-0">
+                        <span class="page-badge">Page 1</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-3 maroon-text">Title & IPO Documentation</h4>
+                        <p class="text-gray-600 text-sm mb-4">Focus on the functional "Black Box" of the system.</p>
+                        <ul class="grid md:grid-cols-2 gap-x-8 gap-y-2 text-sm text-gray-700">
+                            <li><i class="fas fa-check maroon-text mr-2"></i>Title Page (Name, Course, Project Title)</li>
+                            <li><i class="fas fa-check maroon-text mr-2"></i><strong>IPO Table:</strong> Inputs, Processes, Outputs</li>
+                            <li><i class="fas fa-check maroon-text mr-2"></i>Description of Bit-widths and Bus names</li>
+                            <li><i class="fas fa-check maroon-text mr-2"></i>Definition of external control signals</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Page 2 -->
+                <div class="card p-6 flex flex-col md:flex-row gap-6 border-l-8 maroon-border">
+                    <div class="md:w-32 flex-shrink-0">
+                        <span class="page-badge">Page 2</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-3 maroon-text">Component Identification & Hierarchy</h4>
+                        <p class="text-gray-600 text-sm mb-4">Identify the hardware building blocks used in the design.</p>
+                        <ul class="grid md:grid-cols-2 gap-x-8 gap-y-2 text-sm text-gray-700">
+                            <li><i class="fas fa-check maroon-text mr-2"></i>Detailed list of major components (ALU, RAM, etc.)</li>
+                            <li><i class="fas fa-check maroon-text mr-2"></i>Description of Datapath vs. Control logic roles</li>
+                            <li><i class="fas fa-check maroon-text mr-2"></i><strong>Labeled Screenshot:</strong> The Main Circuit view</li>
+                            <li><i class="fas fa-circle-info text-gray-400 mr-2"></i>Optional: Breakdown of subcircuit dependencies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Page 3 -->
+                <div class="card p-6 flex flex-col md:flex-row gap-6 border-l-8 maroon-border">
+                    <div class="md:w-32 flex-shrink-0">
+                        <span class="page-badge">Page 3</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-3 maroon-text">Simulation Discussion</h4>
+                        <p class="text-gray-600 text-sm mb-4">Evidence of testing and cycle-by-cycle tracing.</p>
+                        <ul class="grid md:grid-cols-2 gap-x-8 gap-y-2 text-sm text-gray-700">
+                            <li><i class="fas fa-check maroon-text mr-2"></i><strong>3 Distinct Test Scenarios</strong></li>
+                            <li><i class="fas fa-check maroon-text mr-2"></i>Documentation of simulation logic flow</li>
+                            <li><i class="fas fa-check maroon-text mr-2"></i>Screenshots of Probe values during simulation</li>
+                            <li><i class="fas fa-check maroon-text mr-2"></i>Analysis of wire states (Red/Blue conflicts)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Page 4 -->
+                <div class="card p-6 flex flex-col md:flex-row gap-6 border-l-8 maroon-border">
+                    <div class="md:w-32 flex-shrink-0">
+                        <span class="page-badge">Page 4</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-3 maroon-text">Visual Logic & Real-World Context</h4>
+                        <p class="text-gray-600 text-sm mb-4">The visual representation of state transitions and logic.</p>
+                        <ul class="grid md:grid-cols-2 gap-x-8 gap-y-2 text-sm text-gray-700">
+                            <li><i class="fas fa-check maroon-text mr-2"></i><strong>Full Flowchart:</strong> High-res logic/routing map</li>
+                            <li><i class="fas fa-check maroon-text mr-2"></i>Application rationale (Where is this used in industry?)</li>
+                            <li><i class="fas fa-check maroon-text mr-2"></i>Simulation vs. Silicon limitations discussion</li>
+                            <li><i class="fas fa-check maroon-text mr-2"></i>Architecture implementation reasoning</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Page 5 -->
+                <div class="card p-6 flex flex-col md:flex-row gap-6 border-l-8 maroon-border">
+                    <div class="md:w-32 flex-shrink-0">
+                        <span class="page-badge">Page 5</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-3 maroon-text">Conclusion & Enhancement Proposal</h4>
+                        <p class="text-gray-600 text-sm mb-4">Synthesis of findings and technical reflection.</p>
+                        <ul class="grid md:grid-cols-2 gap-x-8 gap-y-2 text-sm text-gray-700">
+                            <li><i class="fas fa-check maroon-text mr-2"></i>Final summary of architectural findings</li>
+                            <li><i class="fas fa-check maroon-text mr-2"></i>Reflection on digital system design</li>
+                            <li><i class="fas fa-check maroon-text mr-2"></i><strong>Justified Improvement:</strong> One technical upgrade</li>
+                            <li><i class="fas fa-check maroon-text mr-2"></i>Technical reasoning for the proposed fix</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rubric -->
+        <section id="rubric">
+            <div class="section-header">
+                <h3 class="text-2xl font-bold maroon-text uppercase tracking-wide">📊 Grading Rubric</h3>
+            </div>
+            <div class="overflow-x-auto card">
+                <table class="w-full text-left rubric-table">
+                    <thead>
+                        <tr>
+                            <th class="p-4 text-sm uppercase tracking-wider">Criteria</th>
+                            <th class="p-4 text-sm uppercase tracking-wider text-center">Points</th>
+                            <th class="p-4 text-sm uppercase tracking-wider">Expectations</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="p-4 font-bold">IPO Documentation</td>
+                            <td class="p-4 text-center">20</td>
+                            <td class="p-4 text-sm">Accurate flow, correct bit-widths, datapath/control separation.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Simulation Scenarios</td>
+                            <td class="p-4 text-center">15</td>
+                            <td class="p-4 text-sm">3 cases, cycle-level observation, wire state analysis.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Component ID & Behavior</td>
+                            <td class="p-4 text-center">15</td>
+                            <td class="p-4 text-sm">Complete list, correct roles, timing/trigger awareness.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Real-World Rationale</td>
+                            <td class="p-4 text-center">15</td>
+                            <td class="p-4 text-sm">Specific industry connections, addresses silicon limitations.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Flowchart</td>
+                            <td class="p-4 text-center">15</td>
+                            <td class="p-4 text-sm">Standard notation, readable, matches logical flow.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Formatting & Clarity</td>
+                            <td class="p-4 text-center">20</td>
+                            <td class="p-4 text-sm">Professional layout, labeled diagrams, no plagiarism.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="flex justify-center">
+            <button onclick="window.print()" class="maroon-bg text-white px-8 py-3 rounded font-bold hover:bg-red-900 transition shadow-lg">
+                <i class="fas fa-print mr-2"></i> Print Assignment Guide
+            </button>
+        </div>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-500 py-10 px-6 text-center text-xs">
+        <p class="mb-2 uppercase tracking-widest font-bold maroon-text">BCA 141</p>
+        <p class="mb-2 uppercase tracking-widest font-bold">Stefany Mae Caparida</p>
+        <p>© 2024 Digital Systems Assignment Portal</p>
+    </footer>
+
+</body>
+</html>
